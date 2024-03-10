@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опитування в дитячому садку "Ромашка" м. Києва</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .survey-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        canvas {
+            margin-top: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Опитування в дитячому садку "Ромашка" м. Києва</h1>
+        <div class="survey-info">
+            <p>Практика успішних дошкільних закладів демонструє, що активне залучення сімей до освітньої діяльності справляє потужний вплив на формування їхнього позитивного ставлення до ЗДО. Згідно зі статистикою, в садочках з високим рівнем включеності батьків відзначається вища задоволеність їхніми послугами. Так, у дитячому садку "Ромашка" м. Києва варто посилання на офіційний сайт, якщо це ви опитували, у додатки опитувальник та заповнені анкети з відповідями батьків, що реалізує інноваційну програму зі взаємодії з сім’ями, понад 92% опитаних батьків оцінюють роботу закладу на "відмінно", а 85% висловлюють готовність рекомендувати цей садок знайомим. Крім того, ефективна співпраця із сім’ями сприяє зміцненню іміджу садка як закладу, що йде в ногу з часом і відкритий для інновацій.</p>
+        </div>
+        <canvas id="parentSatisfactionChart" width="400" height="400"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('parentSatisfactionChart').getContext('2d');
+        var parentSatisfactionChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Відмінно', 'Добре', 'Задовільно', 'Погано'],
+                datasets: [{
+                    label: 'Задоволеність батьків',
+                    data: [92, 5, 2, 1],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 205, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Задоволеність батьків роботою дитячого садка "Ромашка" м. Києва'
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
